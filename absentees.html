@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absentees</title>
+</head>
+<body>
+    <h1>Absentees</h1>
+    <p>Number of absentees: {{ num_absentees }}</p>
+    <ul>
+        {% for student in absentees %}
+            <li>{{ student.name }} (ID: {{ student.student_id }})</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
