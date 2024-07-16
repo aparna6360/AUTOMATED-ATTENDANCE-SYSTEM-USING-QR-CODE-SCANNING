@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System</title>
+</head>
+<body>
+    <h1>Attendance System</h1>
+    <h2>Scan QR Codes</h2>
+    <div>
+        <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    </div>
+    <h2>Generated QR Codes</h2>
+    <div>
+        {% for student in students %}
+            <div>
+                <p>{{ student.name }} (ID: {{ student.student_id }})</p>
+                <img src="{{ url_for('static', filename='images/' + student.student_id + '_qrcode.png') }}" alt="QR Code">
+            </div>
+        {% endfor %}
+    </div>
+    <a href="{{ url_for('show_absentees') }}">View Absentees</a>
+</body>
+</html>
